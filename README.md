@@ -1,0 +1,2 @@
+# EduHub
+Django Project
