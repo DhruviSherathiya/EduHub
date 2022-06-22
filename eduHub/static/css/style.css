@@ -1,0 +1,50 @@
+.btn-space{
+    margin-right:30px;
+    background-color:#36174D !important;
+    color:#F3EFFE !important;
+}
+
+.txt {
+    color:#36174D !important;
+}
+
+.btn-space:hover{
+    background-color:#FF4778 !important;
+}
+
+.col-md {
+    margin-top:20px !important;
+}
+
+.bg-image {
+    background-color:#F3EFFE;
+}
+
+.sub-name {
+    text-align: center;
+}
+
+.list-group-item {
+    padding-left:20px !important;
+}
+
+.topic-name {
+    color:#36174D;
+}
+
+.topic-name a {
+    color:#36174D;
+}
+
+.sub-img {
+    padding-top:-20px;
+}
+
+.sub-edit{
+    background-color:#36174D !important;
+}
+
+/* Registration Form */
+.err {
+    margin-top: -.1rem !important;
+}
