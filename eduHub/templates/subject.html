@@ -2,17 +2,17 @@
 {% load static %}
 
 <!-- {% for t in topics %}
-  {{ total_hours += t.hours_spent }} 
-  {{ total_mcq += t.mcq_solved }}
+  {{total_hours}} = {{ total_hours }} + {{ t.hours_spent }} 
+  {{total_mcq}} = {{total_mcq}} + {{t.mcq_solved }}
 {% endfor %} -->
 <div class="p-5 text-center">
   {% for t in topics|slice:":1" %}
     <h1 class="mb-3">{{ t.subject_name }}</h1>
-    <h4>Total Hours Spent : {{total_hours}}   |   MCQ Solved : XXX</h4>
+    <!-- <h4>Total Hours Spent : {{total_hours}}   |   MCQ Solved : XXX</h4> -->
     <button type="button" class="btn btn-primary sub-edit" data-mdb-toggle="modal" data-mdb-target="#editSubject">
       Edit Subject
     </button>
-    {% endfor %}
+  {% endfor %}
 </div>
 
 <div class="row">

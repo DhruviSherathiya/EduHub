@@ -7,7 +7,7 @@ class Data(models.Model):
     hours_spent = models.IntegerField()
     mcq_solved = models.IntegerField()
     u_name = models.CharField(max_length=100,default="NULL")
-
+    date_modified = models.DateTimeField(auto_now_add=True)
     # def __str__(self):
     #     return self.title
 
