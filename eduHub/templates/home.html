@@ -4,50 +4,12 @@
 <!-- Content -->
 <div class="container">
     <div class="row">
-      {% for s in subjects %}
-      <div class="col-md">  
-        <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-mdb-ripple-color="light">
-          <img src="static/images/physics.png" class="w-30" alt="Louvre" />
-          <h3 class="sub-name">{{ s.subject_name }}</h3>
-          <a href="subject/{{ s.subject_name }}">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
-          </a>
+        {% for s in subjects %}
+        <div class="col-md-4">
+          <a href="subject/{{ s.subject_name }}" class="btn btn-secondary btn-square-xl" style="height:300px;width:300px;margin:20px;background-color:#36174D;padding-top:30%;font-size:30px;" onMouseOver="this.style.backgroundColor='#6F36BC'" onMouseOut="this.style.backgroundColor='#36174D'">{{ s.subject_name }}</a>
         </div>
-      </div>
-      {% endfor %}
-      
+        {% endfor %}
     </div>
 </div>
-  <!-- <div class="container">
-    <div class="row">
-      <div class="col-md">
-        <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-mdb-ripple-color="light">
-          <img src="static/images/physics.png" class="w-30" alt="Louvre" />
-          <h3>Physics</h3>
-          <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
-          </a>
-        </div>
-      </div>
-      <div class="col-md">
-        <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-mdb-ripple-color="light">
-          <img src="static/images/physics.png" class="w-30" alt="Louvre" />
-          <h3>Physics</h3>
-          <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
-          </a>
-        </div>
-      </div>
-      <div class="col-md">
-        <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-mdb-ripple-color="light">
-          <img src="static/images/physics.png" class="w-30" alt="Louvre" />
-          <h3>Physics</h3>
-          <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div> -->
 
 {% include 'footer.html' %}

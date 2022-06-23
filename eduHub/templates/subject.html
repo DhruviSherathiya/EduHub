@@ -9,7 +9,7 @@
   {% for t in topics|slice:":1" %}
     <h1 class="mb-3">{{ t.subject_name }}</h1>
     <!-- <h4>Total Hours Spent : {{total_hours}}   |   MCQ Solved : XXX</h4> -->
-    <button type="button" class="btn btn-primary sub-edit" data-mdb-toggle="modal" data-mdb-target="#editSubject">
+    <button type="button" class="btn btn-primary sub-edit" data-mdb-toggle="modal" data-mdb-target="#editSubject" style="background-color:#36174D;">
       Edit Subject
     </button>
   {% endfor %}
@@ -46,8 +46,8 @@
             </td>
             <td> 
               <button type="button" class="btn btn-link btn-sm btn-rounded" data-mdb-toggle="modal" data-mdb-target="#deleteTopic">
-              Delete
-            </button> 
+                Delete
+              </button> 
             </td>
           </tr>
           {% endfor %}

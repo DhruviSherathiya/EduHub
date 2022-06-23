@@ -8,5 +8,9 @@ urlpatterns = [
     path('signIn',views.signIn,name='signIn'),
     path('loginAction',views.loginAction,name='loginAction'),
     path('home',views.home,name='home'),
-    path('subject/<str:sname>',views.subject,name='subject')
+    path('subject/home',views.homepg,name='homepg'),
+    path('subject/<str:sname>',views.subject,name='subject'),
+    path('profile',views.profile,name='profile'),
+    path('signout',views.signout,name='signout'),
+    path('delete/<str:topic>', views.delete, name='delete'),
 ]

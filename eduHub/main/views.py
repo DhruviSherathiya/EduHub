@@ -68,6 +68,26 @@ def home(request):
     subjects = Subject.objects.all().filter(u_name=user.username)
     return render(request,'home.html',{'subjects': subjects})
 
+def homepg(request):
+    user = request.user
+    subjects = Subject.objects.all().filter(u_name=user.username)
+    return render(request,'home.html',{'subjects': subjects})
+
 def subject(request,sname):
     topics = Data.objects.all().filter(subject_name=sname)
     return render(request,'subject.html',{'topics':topics})
+
+def profile(request):
+    user = request.user
+    subjects = Subject.objects.all().filter(u_name=user.username)
+    return render(request,'profile.html',{'subjects': subjects})
+
+def signout(request):
+    logout(request)
+    messages.success(request, "Logged Out Successfully!!")
+    return redirect('signIn')
+
+def delete(request, topic):
+  topic = Data.objects.get(topic_name=topic)
+  topic.delete()
+  return render(request,'subject.html')
