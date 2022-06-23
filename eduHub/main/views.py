@@ -6,6 +6,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+from main.models import Subject
+from main.models import Data
+
 # Create your views here.
 
 def index(request):
@@ -21,19 +24,19 @@ def register(request):
         if User.objects.filter(username=username):
             messages.error(
                 request, "Username already exist! Please try some other username.")
-            return redirect('register')
+            return redirect('')
 
         if User.objects.filter(email=email).exists():
             messages.error(request, "Email Already Registered!!")
-            return redirect('register')
+            return redirect('')
 
         if password != confirm_password:
             messages.error(request, "Passwords didn't matched!!")
-            return redirect('register')
+            return redirect('')
 
         if not username.isalnum():
             messages.error(request, "Username must be Alpha-Numeric!!")
-            return redirect('register')
+            return redirect('')
 
         myuser = User.objects.create_user(username, email, password)
         myuser.save()
@@ -61,4 +64,10 @@ def loginAction(request):
     return redirect('register')
 
 def home(request):
-    return render(request,'home.html')
+    user = request.user
+    subjects = Subject.objects.all().filter(u_name=user.username)
+    return render(request,'home.html',{'subjects': subjects})
+
+def subject(request,sname):
+    topics = Data.objects.all().filter(subject_name=sname)
+    return render(request,'subject.html',{'topics':topics})

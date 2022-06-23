@@ -7,5 +7,6 @@ urlpatterns = [
     path('register',views.register,name='register'),
     path('signIn',views.signIn,name='signIn'),
     path('loginAction',views.loginAction,name='loginAction'),
-    path('home',views.home,name='home')
+    path('home',views.home,name='home'),
+    path('subject/<str:sname>',views.subject,name='subject')
 ]

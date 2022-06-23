@@ -1,0 +1,109 @@
+{% include 'header.html' %}
+{% load static %}
+
+<!-- {% for t in topics %}
+  {{ total_hours += t.hours_spent }} 
+  {{ total_mcq += t.mcq_solved }}
+{% endfor %} -->
+<div class="p-5 text-center">
+  {% for t in topics|slice:":1" %}
+    <h1 class="mb-3">{{ t.subject_name }}</h1>
+    <h4>Total Hours Spent : {{total_hours}}   |   MCQ Solved : XXX</h4>
+    <button type="button" class="btn btn-primary sub-edit" data-mdb-toggle="modal" data-mdb-target="#editSubject">
+      Edit Subject
+    </button>
+    {% endfor %}
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+      <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+          <tr>
+            <th>Topic Name</th>
+            <th>Hours Spent</th>
+            <th>MCQ Solved</th>
+            <th>Actions</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for t in topics %}
+          <tr>
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="ms-3">
+                  <p class='fw-bold mb-1'>{{ t.topic_name }}</p>
+                </div>
+              </div>
+            </td>
+            <td><p class='fw-normal mb-1'>{{ t.hours_spent }}</p></td>
+            <td>{{ t.mcq_solved }}</td>
+            <td> 
+              <button type="button" class="btn btn-link btn-sm btn-rounded" data-mdb-toggle="modal" data-mdb-target="#editTopic">
+              Edit
+            </button> 
+            </td>
+            <td> 
+              <button type="button" class="btn btn-link btn-sm btn-rounded" data-mdb-toggle="modal" data-mdb-target="#deleteTopic">
+              Delete
+            </button> 
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+        <img src="static/images/subject.png" class="sub-img">
+    </div>
+</div>
+
+<!--Edit Topic Modal -->
+<div class="modal fade" id="editTopic" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Edit Topic</h5>
+        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">...</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary sub-edit" data-mdb-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary sub-edit">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Delete Topic Modal -->
+<div class="modal fade" id="deleteTopic" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">Do you want to delete this topic?</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary sub-edit">Yes</button>
+        <button type="button" class="btn btn-primary sub-edit" data-mdb-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Edit Subject Modal -->
+<div class="modal fade" id="editSubject" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Edit Subject</h5>
+        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">...</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary sub-edit" data-mdb-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary sub-edit">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include 'footer.html' %}
